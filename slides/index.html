@@ -119,10 +119,12 @@ h2 {
                 <h2>Agenda</h2>
                 <ul>
                     <li>Overordnet React</li>
-                    <li>Konsepter i React (med oppgaver)</li>
-                    <li>JSX (med oppgaver)</li>
-                    <li>State og events (med oppgaver)</li>
-                    <li>Webpack (med oppgaver, hvis vi rekker)</li>
+                    <li>Konsepter i React</li>
+                    <li>JSX</li>
+                    <li>State og events</li>
+                    <li>Webpack</li>
+                    <li>Redux</li>
+                    <li>Hands-on</li>
                 </ul>
 
                 <aside class="notes">
@@ -331,26 +333,6 @@ ReactDOM.render(myElement, document.getElementById('my-dom-id'));
             </section>
 
             <section>
-                <!-- 15 min -->
-                <h2>Oppgave 1 - Hello world</h2>
-
-                <p>Skriv en kort statisk tekst til DOM med React</p>
-
-                <p class="hints">Hint/forslag:</p>
-
-                <ul>
-                    <li>Ta utgangspunkt i <code>tasks/task-1/index.html</code> fra repoet <a href="https://github.com/kmkr/react-ws">https://github.com/kmkr/react-ws</a></li>
-                    <li>Åpne `tasks/task-1/index.html` i en nettleser for å se resultatet</li>
-                    <li>Dersom du vil se eksempler fra presentasjonen, åpne `open-presentation.html` i en nettleser</li>
-                </ul>
-                <pre>
-                    <code class="language-jsx">
-React.createElement("div", null, "Hei på deg!")
-                    </code>
-                </pre>
-            </section>
-
-            <section>
                 <!-- 5 min -->
                 <h2 style="text-transform: none;">React.createClass()</h2>
 
@@ -371,24 +353,6 @@ ReactDOM.render(...);
                         <li>createClass gir en funksjon</li>
                     </ul>
                 </aside>
-            </section>
-
-            <section>
-                <!-- 15 min -->
-                <h2>Oppgave 2 - React-komponent</h2>
-
-                <p>Lag React-komponenten "Header" som inneholder en statisk tekst - f.eks "Hei!"</p>
-
-                <p class="hints">Hint/forslag:</p>
-
-                <ul>
-                    <li>Fortsett på forrige oppgave, eller bruk <code>tasks/task-2/index.html</code></a></li>
-                    <li>Definer Header med <code>React.createClass({ ... })</code>.</li>
-                    <li>Header trenger kun én funksjon: <code>render() { ... }</code></li>
-                    <li><code>render()</code> må returnere ett enkelt React-element - gjerne tilsvarende det fra oppgave 1).</li>
-                    <li>Lag en instans av Header med <code>React.createElement(...)</code></li>
-                    <li>Render Header til DOM med <code>ReactDOM.render({ ... })</code></li>
-                </ul>
             </section>
 
             <section>
@@ -418,31 +382,6 @@ var MyOwnHeaderComponent = React.createClass({
                         <li>Props er sentralt i React - komponenter/funksjoner tar inn data og returnerer et view</li>
                     </ul>
                 </aside>
-            </section>
-
-            <section>
-                <!-- 10 min -->
-                <h2>Oppgave 3 - props</h2>
-
-                <p>Vis "Hei, &lt;ditt navn&gt;!" i stedet for den statiske teksten</p>
-
-                <p class="hints">Hint/forslag:</p>
-
-                <ul>
-                    <li>Send med navnet ditt til Header og bruk <code>this.props</code> inne i Header til å lese verdien</li>
-                </ul>
-                <pre>
-                    <code class="language-jsx">
-var MyOwnHeaderComponent = React.createClass({
-    render: function () {
-        var name = this.props.yourName;
-        // ...
-    }
-});
-
-React.createElement(MyOwnHeaderComponent, {yourName: 'Ole Brumm'});
-                    </code>
-                </pre>
             </section>
 
             <section>
@@ -481,22 +420,6 @@ ReactDOM.render(myElem, ...)
             </section>
 
             <section>
-                <!-- 15 min -->
-                <h2>Oppgave 4 - Liste over filmer</h2>
-
-                <p>Lag en ny komponent - MovieList - og render den til DOM</p>
-
-                <p class="hints">Hint/forslag:</p>
-
-                <ul>
-                    <li>Innhold i komponenten kan foreløpig være en tom tekst</li>
-                    <li><code>ReactDOM.render(...)</code> krever én rot-komponent, så for å inkludere både Header og MovieList må de wrappes i f.eks en <code>&lt;div&gt;</code>.</li>
-                </ul>
-                <img style="width: 50%" src="imgs/div-header-movielist.svg" />
-
-            </section>
-
-            <section>
                 <!-- 5 min -->
                 <h2>JavaScript i <code>render()</code></h2>
 
@@ -518,23 +441,6 @@ React.createClass({
                     </ul>
                 </aside>
             </section>
-
-            <section>
-                <!-- 15 min -->
-                <h2>Oppgave 5</h2>
-
-                <p>Vis en liste over filmer du liker i MovieList</p>
-
-                <p class="hints">Hint/forslag:</p>
-
-                <ul>
-                    <li>Filmlista kan være et hardkodet array i komponenten</li>
-                    <li>Bruk <code>.map()</code> til å iterere over arrayet</li>
-                    <li>Bruk <code>&lt;ul&gt;</code> til lista. Navnet på hver film vises i en <code>&lt;li&gt;</code>.</li>
-                </ul>
-
-            </section>
-
 
             <section>
                 <!-- 5 min -->
@@ -699,107 +605,6 @@ ReactDOM.render(
             </section>
 
             <section>
-                <!-- 15 min -->
-                <h2>Oppgave 6 - Babel</h2>
-
-                <p>Skriv om React-komponentene dine til JSX</p>
-
-                <p class="hints">Hint/forslag:</p>
-                <ul>
-                <li>Ta utgangspunkt i tasks/task-6-babel</li>
-                <li>Kjør <code>npm install</code> for å installere avhengigheter</li>
-                <li>Kjør <code>npm run build</code> for å transpilere</li>
-                </ul>
-
-                <pre>
-                    <code class="language-jsx">
-class Header extends React.Component {
-    render() {
-        return <p>Hei {this.props.name}</p>;
-    }
-}
-                    </code>
-                </pre>
-
-            </section>
-
-
-            <section>
-                <h2>Nyttige lenker</h2>
-
-                <ul>
-                    <li>
-                        <a href="https://facebook.github.io/react/docs/getting-started.htm">
-                            https://facebook.github.io/react/docs/getting-started.html
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://facebook.github.io/react/docs/thinking-in-react.html">
-                            https://facebook.github.io/react/docs/thinking-in-react.html
-                        </a>
-
-                    </li>
-                    <li>
-                        <a href="https://github.com/facebookincubator/create-react-app">
-                            https://github.com/facebookincubator/create-react-app
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://courses.reactjsprogram.com/courses/reactjsfundamentals">
-                            http://courses.reactjsprogram.com/courses/reactjsfundamentals
-                        </a>
-                    </li>
-                </ul>
-
-            </section>
-
-            <section>
-                <img class="tiny-pulsate" src="imgs/react.svg" style="border: 0; background-color: transparent;"/>
-                <p>
-                    <small><a href="mailto:kris-mikael.krister@webstep.no">kris-mikael.krister@webstep.no</a></small>
-                </p>
-                <aside class="notes">
-                    Hei og velkommen til den andre og siste, for denne gang, React-workshops.
-
-                    Intro med navn, bakgrunn.
-
-                    Intro for kvelden...
-                </aside>
-            </section>
-
-            <section>
-                <!-- 5 min -->
-                <h2>Agenda</h2>
-                <ul>
-                    <li>Recap</li>
-                    <li>Fortsette med state og events (med oppgave)</li>
-                    <li>Webpack (med oppgave)</li>
-                    <li>Redux (med oppgaver)</li>
-                </ul>
-
-                <aside class="notes">
-                    <ul>
-                    </ul>
-                </aside>
-            </section>
-
-            <section>
-                <!-- 5 min -->
-                <h2>Recap</h2>
-                <ul>
-                    <li>React-element</li>
-                    <li>React-komponent</li>
-                    <li>Props</li>
-                    <li>JSX</li>
-                </ul>
-
-                <aside class="notes">
-                    <ul>
-                    </ul>
-                </aside>
-            </section>
-
-            <section>
                 <!-- 10 min -->
                 <h2>Events</h2>
 
@@ -865,34 +670,6 @@ class MyComponent extends React.Component {
                         <li>O(n) kjøretid for oppdateringer</li>
                     </ul>
                 </aside>
-            </section>
-
-            <section>
-                <pre>
-                    <code class="language-javascript">
-cd react-ws/tasks/task-7-state-events
-npm install
-npm run build
-                    </code>
-                </pre>
-
-
-            </section>
-
-            <section>
-                <!-- 25 min -->
-                <h2>Oppgave 7 - state og events</h2>
-
-                <p>Implementer mulighet for å legge til filmer</p>
-
-                <ol style="list-style-type: lower-alpha; font-size: 25px;">
-                    <li>Sett opp initiell state i <code>constructor()</code>. Initiell state kan inkludere både lista med filmer og tekst i inputfeltet</li>
-                    <li>Bruk <code>this.setState({ ... })</code> i <code>handleChange()</code> til å oppdatere state med inputfelt-verdi</li>
-                    <li>Bruk <code>this.setState({ ... })</code> i <code>handleClick()</code> til å oppdatere state med ny film</li>
-                    <li>Bonusoppgave: tøm inputfeltet når en film er lagt til</li>
-                    <li>Bonusoppgave: disable knapp dersom inputfeltet er tomt</li>
-                </ol>
-
             </section>
 
             <section>

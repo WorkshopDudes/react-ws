@@ -723,35 +723,6 @@ import MyComponent from './my-component';
             </section>
 
             <section>
-                <pre>
-                    <code class="language-javascript">
-cd react-ws/tasks/task-8-webpack
-npm install
-                    </code>
-                </pre>
-
-
-            </section>
-
-            <section>
-                <!-- ??? min -->
-                <h2>Oppgave 8 - Webpack</h2>
-
-                <p>Trekk MovieList ut i egen fil, og bruk Webpack til å bundle applikasjonen</p>
-
-                <p class="hints">Hint/forslag:</p>
-
-                <ul>
-                    <li>Ta utgangspunkt i <code>tasks/task-8-webpack</code></li>
-                    <li>Lag en ny fil, <code>movie-list.js</code></li>
-                    <li>Bruk <code>npm run watch</code> mens du utvikler</li>
-                    <li>Importer og render den nye fila i <code>tasks/task-8-webpack/src/app.js</code></li>
-                    <li>Bruk <code>header.js</code> som eksempel hvis du står fast</li>
-                </ul>
-
-            </section>
-
-            <section>
                 <img src="imgs/redux-logo-title-dark.png" style="background-color: #fff"/>
             </section>
 
@@ -1301,61 +1272,6 @@ function movieReducer(state = initialState, action) {
             </section>
 
             <section>
-                <pre>
-                    <code class="language-javascript">
-cd react-ws/tasks/task-9-redux
-npm install
-npm run test:watch
-                    </code>
-                </pre>
-            </section>
-
-            <section>
-                <h2>Oppgave 9a - reducer og actions</h2>
-
-                <p>
-                    Implementer reducer for action <code>SET_INPUT_VALUE</code>
-                </p>
-
-                <p class="hints">Hint/forslag:</p>
-
-                <ul>
-                    <li>Ta utgangspunkt i <code>movie-reducer.js</code></li>
-                    <li>Kjør tester med <code>npm run test:watch</code></li>
-                    <li>Gjør én og én test grønn i <code>movie-reducer-set-input-value.test.js</code></li>
-                </ul>
-
-                <aside class="notes">
-                    <ul>
-                        <li></li>
-                    </ul>
-                </aside>
-            </section>
-
-            <section>
-                <h2>Oppgave 9b - reducer og actions</h2>
-
-                <p>
-                    Implementer reducer for action <code>ADD_MOVIE</code>
-                </p>
-
-                <p class="hints">Hint/forslag:</p>
-
-                <ul>
-                    <li>Utvid <ode>movie-reducer.js</code></li>
-                    <li>Testene i <code>movie-reducer-add-movie.test.js</code> er kommentert ut. Fjern utkommenteringen så de blir aktivert</li>
-                    <li>Kjør tester med <code>npm run test:watch</code></li>
-                    <li>Gjør én og én test grønn</li>
-                </ul>
-
-                <aside class="notes">
-                    <ul>
-                        <li></li>
-                    </ul>
-                </aside>
-            </section>
-
-            <section>
                 <style type="text/css">
                     .rounded-foo {
                        background-color: #fff;
@@ -1432,62 +1348,6 @@ myStore.dispatch(action);
                     <ul>
                         <li></li>
                     </ul>
-                </aside>
-            </section>
-
-            <section>
-                <h2>... prøver oss selv først</h2>
-
-                <ol>
-                    <li>Lag en store</li>
-                    <li>Lag en react-komponent som tar i mot data fra store</li>
-                    <li>Render komponenten</li>
-                    <li>Re-render komponenten når store endres</li>
-                </ol>
-
-                <aside class="notes">
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
-
-const initialState = 0;
-function myReducer(state = initialState, action) {
-    switch (action.type) {
-        case 'INCREMENT':
-            return state + 1;
-        default:
-            return state;
-    }
-}
-const myStore = createStore(myReducer);
-
-class MyCounter extends Component {
-    handleClick() {
-        myStore.dispatch({
-            type: 'INCREMENT'
-        })
-    }
-    render() {
-        return (
-            <div>
-                Counter: {this.props.counter}
-
-                <button onClick={this.handleClick.bind(this)}>Increment counter</button>
-            </div>
-        );
-    }
-}
-
-function render() {
-    const counter = myStore.getState();
-    ReactDOM.render(<MyCounter counter={counter}/>, document.getElementById('my-app'));
-}
-
-render();
-
-myStore.subscribe(render);
-
-window.myStore = myStore;
                 </aside>
             </section>
 
@@ -1578,30 +1438,6 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps)(MovieListContainer);
                     </code>
                 </pre>
-
-                <aside class="notes">
-                </aside>
-            </section>
-
-            <section>
-                <pre>
-                    <code class="language-javascript">
-git pull
-cd react-ws/tasks/task-9-redux
-npm run watch
-                    </code>
-                </pre>
-            </section>
-
-            <section>
-                <ol start="3" style="list-style-type: lower-alpha !important">
-                    <li>Dispatch 'SET_INPUT_VALUE' i <code>handleInputChange</code> i MovieListContainer</li>
-                    <li>Dispatch 'ADD_MOVIE' i <code>handleAddMovie</code> i MovieListContainer</li>
-                    <li>Implementer <code>mapStateToProps</code> i MovieListContainer</li>
-                    <li>Send <code>movies</code> og <code>inputValue</code> i render-funksjonen til MovieListContainer</li>
-                    <li>Bonusoppgave: Disable knapp i <code>MovieList</code> dersom tekstfeltet er tomt</li>
-                    <li>Bonusoppgave: Tøm inputValue etter hver film blir lagt til</li>
-                </ol>
 
                 <aside class="notes">
                 </aside>

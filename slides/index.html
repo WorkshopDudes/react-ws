@@ -726,331 +726,6 @@ import MyComponent from './my-component';
                 <img src="imgs/redux-logo-title-dark.png" style="background-color: #fff"/>
             </section>
 
-            <style type="text/css">
-                .state-app-example-wrapper {
-                    width: 840px !important;
-                    padding: 20px !important;
-                    background-color: #fff;
-                }
-                .state-app-example {
-                    margin: 0 auto !important;
-                    width: 800px !important;
-                    height: 350px !important;
-                    border: 1px solid black !important;
-                    position: relative !important;
-                    padding: 20px !important;
-                }
-
-                .state-app-example .rounded {
-                    border: 6px solid green !important;
-                    border-radius: 25px;
-                }
-
-                .state-app-example .loader {
-                    position: absolute !important;
-                    top: 200px !important;
-                    left: 370px !important;
-                }
-
-                .state-app-example .cart {
-                    border: 1px solid blue !important;
-                    text-align: right;
-                    color: black !important;
-                }
-
-                .state-app-example .error-message {
-                    margin-top: 10px !important;
-                    border: 1px solid purple !important;
-                    color: black !important;
-                    background-color: pink !important;
-                }
-
-                .state-app-example .cart .num-items {
-                    position: absolute;
-                    top: 40px;
-                    right: 90px;
-                }
-
-                .state-app-example table {
-                    margin-top: 10px !important;
-                }
-
-                .state-app-example td, .state-app-example th {
-                    color: black !important;
-                    font-size: 30px;
-                    border-bottom: 1px solid red !important;
-                }
-
-                .state-app-example tr {
-                    border: 1px solid red !important;
-                }
-            </style>
-
-            <section>
-                <h2>Motivasjon med et eksempel</h2>
-
-                <p>Marie skal kjøpe avokado</p>
-            </section>
-
-            <section>
-                <div class="state-app-example-wrapper">
-                    <div class="state-app-example">
-                        <img class="loader" src="imgs/hourglass.svg" />
-                    </div>
-                </div>
-                <p>Applikasjonen starter</p>
-                <ul>
-                    <li>Data lastes asynk</li>
-                    <li>Spinner vises</li>
-                </ul>
-            </section>
-
-            <section>
-                <div class="state-app-example-wrapper">
-                    <div class="state-app-example">
-                        <div>
-                            <div class="cart">
-                                <img src="imgs/cart.png" /><span class="num-items">(0)</span>
-                            </div>
-                            <table>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Pris</th>
-                                    <th>På lager</th>
-                                </tr>
-                                <tr>
-                                    <td>Avokado</td>
-                                    <td>150kr</td>
-                                    <td>5 stk</td>
-                                </tr>
-                                <tr>
-                                    <td>Palme</td>
-                                    <td>160kr</td>
-                                    <td>1 stk</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <p>Data lastet ferdig</p>
-                <ul>
-                    <li>Produkter vises med navn og lagerstatus</li>
-                    <li>Spinner stoppes</li>
-                </ul>
-            </section>
-
-            <section>
-                <div class="state-app-example-wrapper">
-                    <div class="state-app-example">
-                        <div>
-                            <div class="cart">
-                                <img src="imgs/cart.png"/><span class="num-items">(1)</span>
-                            </div>
-                            <table>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Pris</th>
-                                    <th>På lager</th>
-                                </tr>
-                                <tr>
-                                    <td>Avokado</td>
-                                    <td>150kr</td>
-                                    <td>4 stk</td>
-                                </tr>
-                                <tr>
-                                    <td>Palme</td>
-                                    <td>160kr</td>
-                                    <td>1 stk</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <p>Marie legger avokado til handlekurv.</p>
-                <ul>
-                    <li>Går et kall til server for å lagre handlekurven</li>
-                    <li>Handlekurv-ikon oppdateres optimistisk</li>
-                    <li>Lagerstatus oppdateres optimistisk</li>
-                </ul>
-            </section>
-
-            <!--
-            <section>
-                <div class="state-app-example-wrapper">
-                    <div class="state-app-example">
-                        <div>
-                            <div class="cart">
-                                <img src="imgs/cart.png"/><span class="num-items rounded">&nbsp;&nbsp;(2)&nbsp;&nbsp;</span>
-                            </div>
-                            <table>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Pris</th>
-                                    <th>På lager</th>
-                                </tr>
-                                <tr>
-                                    <td>Avokado</td>
-                                    <td>150kr</td>
-                                    <td>3 stk</td>
-                                </tr>
-                                <tr>
-                                    <td>Palme</td>
-                                    <td>160kr</td>
-                                    <td>1 stk</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <p>Marie ser at hun la til en avokado for mye</p>
-            </section>
-
-            <section>
-                <div class="state-app-example-wrapper">
-                    <div class="state-app-example">
-                        <div>
-                            <div class="cart">
-                                <img src="imgs/cart.png"/><span class="num-items">(1)</span>
-                            </div>
-                            <table>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Pris</th>
-                                    <th>På lager</th>
-                                </tr>
-                                <tr>
-                                    <td>Avokado</td>
-                                    <td>150kr</td>
-                                    <td>4 stk</td>
-                                </tr>
-                                <tr>
-                                    <td>Palme</td>
-                                    <td>160kr</td>
-                                    <td>1 stk</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <p>Marie fjerner en avokado fra handlekurven</p>
-
-                <ul>
-                    <li>Går et kall til server for å frigjøre produktet fra handlekurven</li>
-                    <li>Handlekurv-ikon oppdateres optimistisk</li>
-                    <li>Lagerstatus oppdateres optimistisk</li>
-                </ul>
-            </section>
-            -->
-
-            <section>
-                <div class="state-app-example-wrapper">
-                    <div class="state-app-example">
-                        <div>
-                            <div class="cart">
-                                <img src="imgs/cart.png"/><span class="num-items">(2)</span>
-                            </div>
-                            <table>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Pris</th>
-                                    <th>På lager</th>
-                                </tr>
-                                <tr>
-                                    <td>Avokado</td>
-                                    <td>150kr</td>
-                                    <td>4 stk</td>
-                                </tr>
-                                <tr>
-                                    <td>Palme</td>
-                                    <td>160kr</td>
-                                    <td>0 stk</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <p>Marie legger en palme til handlekurven.</p>
-                <ul>
-                    <li>Går et kall til server for å lagre handlekurven</li>
-                    <li>Handlekurv-ikon oppdateres optimistisk</li>
-                    <li>Lagerstatus oppdateres optimistisk</li>
-                </ul>
-            </section>
-
-            <section>
-                <div class="state-app-example-wrapper">
-                    <div class="state-app-example">
-                        <div>
-                            <div class="cart">
-                                <img src="imgs/cart.png"/><span class="num-items">(1)</span>
-                            </div>
-                            <table>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Pris</th>
-                                    <th>På lager</th>
-                                </tr>
-                                <tr>
-                                    <td>Avokado</td>
-                                    <td>150kr</td>
-                                    <td>4 stk</td>
-                                </tr>
-                                <tr>
-                                    <td>Palme</td>
-                                    <td>160kr</td>
-                                    <td>1 stk</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <p>Marie angrer før kallet er gjennomført, og fjerner palmen fra handlekurven.</p>
-                <ul>
-                    <li>Går et kall til server for å lagre handlekurven</li>
-                    <li>Handlekurv-ikon oppdateres optimistisk</li>
-                    <li>Lagerstatus oppdateres optimistisk</li>
-                </ul>
-            </section>
-
-            <section>
-                <div class="state-app-example-wrapper">
-                    <div class="state-app-example">
-                        <div>
-                            <div class="cart">
-                                <img src="imgs/cart.png"/><span class="num-items">(1)</span>
-                            </div>
-                            <div class="error-message">
-                                <p>Noe galt skjedde!</p>
-                            </div>
-                            <table>
-                                <tr>
-                                    <th>Type</th>
-                                    <th>Pris</th>
-                                    <th>På lager</th>
-                                </tr>
-
-                                <tr>
-                                    <td>Avokado</td>
-                                    <td>150kr</td>
-                                    <td>4 stk</td>
-                                </tr>
-                                <tr>
-                                    <td>Palme</td>
-                                    <td>160kr</td>
-                                    <td>0 stk</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-                <p>Kallet feilet</p>
-                <ul>
-                    <li class="fragment fade-up">Feilmelding vises</li>
-                    <li class="fragment fade-up">Lagerstatus oppdateres</li>
-                    <li class="fragment fade-up">Handlekurv-ikon må egentlig oppdateres - bug!</li>
-                </ul>
-            </section>
-
             <!--
             <section>
                 <h2>Flux - motivasjon</h2>
@@ -1310,26 +985,6 @@ function movieReducer(state = initialState, action) {
             </section>
 
             <section>
-                <h2>Redux.createStore()</h2>
-
-                <pre>
-                    <code class="language-javascript">
-var myStore = Redux.createStore(myReducer);
-
-myStore.getState();
-myStore.subscribe(callback);
-myStore.dispatch(action);
-                    </code>
-                </pre>
-
-                <aside class="notes">
-                    <ul>
-                        <li></li>
-                    </ul>
-                </aside>
-            </section>
-
-            <section>
             <h2>React&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⇆&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span class="pulsate">?</span>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⇆&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Redux</h2>
@@ -1362,31 +1017,6 @@ myStore.dispatch(action);
 
                 <aside class="notes">
                 </aside>
-            </section>
-
-            <section>
-                <div>
-                    <div style="width: 50%; float: left;">
-                        <p>Presentasjons-komponenter</p>
-
-                        <ul>
-                            <li>Styrer hvordan ting ser ut</li>
-                            <li>Mottar data og callbacks via props</li>
-                            <li>Endrer ikke data selv</li>
-                        </ul>
-                    </div>
-
-                    <div style="width: 50%; float: left;">
-                        <p>Container-komponenter</p>
-
-                        <ul>
-                            <li>Håndterer data</li>
-                            <li>Har tilgang på Redux-store</li>
-                            <li>Dispatcher actions</li>
-                        </ul>
-                    </div>
-                </div>
-
             </section>
 
             <section>
@@ -1444,6 +1074,31 @@ export default connect(mapStateToProps)(MovieListContainer);
             </section>
 
             <section>
+                <div>
+                    <div style="width: 50%; float: left;">
+                        <p>Presentasjons-komponenter</p>
+
+                        <ul>
+                            <li>Styrer hvordan ting ser ut</li>
+                            <li>Mottar data og callbacks via props</li>
+                            <li>Endrer ikke data selv</li>
+                        </ul>
+                    </div>
+
+                    <div style="width: 50%; float: left;">
+                        <p>Container-komponenter</p>
+
+                        <ul>
+                            <li>Håndterer data</li>
+                            <li>Har tilgang på Redux-store</li>
+                            <li>Dispatcher actions</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+
+            <section>
                 <h2>Fordeler og ulemper</h2>
 
                 <ul>
@@ -1461,15 +1116,14 @@ export default connect(mapStateToProps)(MovieListContainer);
             </section>
 
             <section>
-                <h2>Nyttige lenker</h2>
+                <h2>Hands-on</h2>
+
+                <p>git clone https://github.com/kmkr/react-ws.git</p>
 
                 <ul>
-                    <li><a href="http://redux.js.org">http://redux.js.org</a></li>
-                    <li><a href="https://egghead.io/courses/getting-started-with-redux">https://egghead.io/courses/getting-started-with-redux</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=xsSnOQynTH">https://www.youtube.com/watch?v=xsSnOQynTHs</a></li>
-                    <li><a href="https://rainsoft.io/gentle-explanation-of-this-in-javascript/">https://rainsoft.io/gentle-explanation-of-this-in-javascript/</a></li>
+                    <li>Åpne slides/index.html i nettleseren</li>
+                    <li>Bla bortover i slides for å finne oppgaver</li>
                 </ul>
-
             </section>
 
         </div>

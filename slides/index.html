@@ -146,6 +146,7 @@ h2 {
                     <li>Konsist API</li>
                     <li>Virtuell DOM</li>
                     <li>Komponentbasert</li>
+                    <li>"Learn Once, Write Anywhere"</li>
                 </ul>
 
                 <aside class="notes">
@@ -154,7 +155,7 @@ h2 {
                         <li>Konsist API - raskt å sette seg inn i grunnleggende React, surface på API-et er lite og dokumentasjonen er god</li>
                         <li>Virtuell DOM - den største nytenkningen React kom med, og primærårsaken til at det er så raskt som det er. Kommer til å snakke en del om virtuell dom i workshopen.</li>
                         <li>Komponentbasert - en react-applikasjon er bygget opp av enheter med hvert sitt konkrete ansvarsområde.</li>
-
+                        <li>Learn once, Write anyhere - kan rendere på server ved å bruke node. Ved å bruke react native kan man lage mobilapps.
                     </ul>
                 </aside>
             </section>
@@ -168,6 +169,14 @@ h2 {
                         <li>La oss si at det skjer noen endringer i applikasjonen vi skal agere på. F.eks brukeren trykker på noe som fører til en hendelse, eller skriver noe i et tekstfelt, eller data kommer tilbake fra server</li>
                         <li>React sjekker hvorvidt sin egen interne modell, den virtuelle DOM-en, er endret, og flusher kun de tingene som er endret til DOM</li>
                         <li>Dette er essensen av virtuell DOM, og primært hva som gjør at React skiller seg ut fra tradisjonelle bibliotek. React er med dette i stand til å gjøre optimaliserte valg på hva som skal oppdateres.</li>
+                        <li>Problem: Å generere minimum antall operasjoner som trengs for å endre et tre til et annet</li>
+                        <ul>
+                            <li>Heuristik for å gjøre et O(n)^3 om til O(n) kjøretid for oppdateringer</li>
+                        </ul>
+                        <li>React er designet slik at APIet gir et inntrykk av at hele appen blir re-rendret når noe oppdateres</li>
+                        <ol>
+                            <li>Noe som gjør det lettere for brukeren</li>
+                        </ol>
                     </ul>
                 </aside>
             </section>
@@ -306,11 +315,21 @@ h2 {
 React.createElement("div", null, "Hei på deg!");
 
 React.createElement(MyOwnHeaderComponent);
+
+React.createElement(
+  html tag string/ReactClass type,
+  [object props],
+  [children ...]
+)
                     </code>
                 </pre>
                 <aside class="notes">
                     <ul>
-                    <li></li>
+                        <li>React-elementer er ikke det samme som DOM-elementer.</li>
+                        <li>React-elementer er en stateless, immutable representasjon av DOMen - en virtuell DOM</li>
+                        <li>Type argumenet kan enten være en HTML tag streng, eller et React-komponent</li>
+                        <li>Man kan bygge en React app ved kun å bruke elementer</li>
+                        <li>Man kan bruke JSX istedet</li>
                     </ul>
                 </aside>
             </section>
@@ -328,6 +347,8 @@ ReactDOM.render(myElement, document.getElementById('my-dom-id'));
                 </pre>
                 <aside class="notes">
                     <ul>
+                        <li>Brukes for å koble react til DOMen</li>
+                        <li>Her setter man inn "root"-noden i React-appen</li>
                     </ul>
                 </aside>
             </section>
@@ -382,41 +403,6 @@ var MyOwnHeaderComponent = React.createClass({
                         <li>Props er sentralt i React - komponenter/funksjoner tar inn data og returnerer et view</li>
                     </ul>
                 </aside>
-            </section>
-
-            <section>
-                <!-- 5 min -->
-                <h2>React root</h2>
-
-                <p><code>ReactDOM.render(...)</code> krever ett (og kun ett) element</p>
-
-                <img style="width: 50%" src="imgs/div-header-movielist.svg" />
-
-                <aside class="notes">
-                    http://webgraphviz.com/
-
-                    digraph G {
-                        div -> Header;
-                        div -> MovieList;
-                    }
-                </aside>
-            </section>
-
-            <section>
-                <!-- 5 min -->
-                <h2>React root - løst med wrapper</h2>
-                <pre>
-                    <code class="language-jsx">
-var myElem = React.createElement(
-    'div',
-    null,
-    React.createElement('p', null, 'First paragraph'),
-    React.createElement('p', null, 'Second paragraph')
-);
-
-ReactDOM.render(myElem, ...)
-                    </code>
-                </pre>
             </section>
 
             <section>
@@ -548,60 +534,10 @@ ReactDOM.render(
                 </div>
                 <aside class="notes">
                     <ul>
-                        <li></li>
+                        <li>Nevne at man må bruke node for å kjøre babel, og npm for å laste ned</li>
+                        <li>Det forklares i oppgavene hvordan man bruker babel</li>
                     </ul>
                 </aside>
-            </section>
-
-            <section>
-                <!-- 2 min -->
-                <h2>Hvordan bruke Babel?</h2>
-
-                <img src="imgs/node-logo.svg" style="background-color: #fff" />
-
-                <aside class="notes">
-                    <ul>
-                        <li>Forklar node</li>
-                    </ul>
-                </aside>
-
-            </section>
-
-            <section>
-                <!-- 2 min -->
-                <h2>Hvordan bruke Babel?</h2>
-
-                <img src="imgs/npm-scrshot.png" />
-
-                <aside class="notes">
-                    <ul>
-                        <li>Forklar npm</li>
-                    </ul>
-                </aside>
-
-            </section>
-
-            <section>
-                <!-- 5 min -->
-                <h2>Hvordan bruke Babel?</h2>
-
-                <ol>
-                    <li>Installer node</li>
-                    <li>Kjør <code>npm init</code></li>
-                    <li>Installer babel med <code>npm install --save-dev</code></li>
-                    <li>Et par linjer i <code>.babelrc</code></li>
-                </ol>
-
-                <p>Good to go, du kan nå kjøre babel med node!</p>
-
-                <aside class="notes">
-                    <ul>
-                        <li>Vis npm, node_modules. Forklar --save som skriver til package.json og årsaken</li>
-                        <li>Ikke sjekk inn node_modules</li>
-                        <li>Vis feilmeldinger (f.eks unterminated JSX)</li>
-                    </ul>
-                </aside>
-
             </section>
 
             <section>
@@ -657,19 +593,6 @@ class MyComponent extends React.Component {
                     </code>
                 </pre>
 
-            </section>
-
-            <section>
-                <!-- 3 min -->
-                <h2>State - reconciliation</h2>
-
-                <img src="imgs/should-component-update.png" />
-
-                <aside class="notes">
-                    <ul>
-                        <li>O(n) kjøretid for oppdateringer</li>
-                    </ul>
-                </aside>
             </section>
 
             <section>
